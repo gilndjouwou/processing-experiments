@@ -1,0 +1,134 @@
+color fg = #f1f1f1;
+color bg = #101010;
+color hue1 = #FFBA08;
+color hue2 = #FAA307;
+color hue3 = #F48C06;
+color hue4 = #E85D04;
+color hue5 = #DC2F02;
+color hue6 = #D00000;
+color hue7 = #9D0208;
+color hue8 = #6A040F;
+color hue9 = #370617;
+color hue10 =#03071E;
+
+void setup(){
+  size(1080, 1920);
+  frameRate(30);
+}
+
+void draw() {
+  background(bg);
+  noStroke();
+  
+  float amount = mouseX/20;
+  float step = 360 / amount;
+  float wave = cos(frameCount * 0.01);
+   
+  // ELLIPSE SHAPES
+  for (int i = 0; i < amount; i++) {
+    //small ellipse w/circles
+    push();
+    fill(hue1);
+    translate(width/2, height/2);
+    rotate(radians(i * step) + wave);
+    ellipse(0, 100, random(50),random(amount)) ;
+    pop();
+
+    //middle ellipse w/ circles
+    push();
+    fill(hue3);
+    translate(width/2, height/2);
+    rotate(radians(i * step) + wave);
+    ellipse(0, 300, random(100),random(amount)) ;
+    pop();
+    
+    //large ellipse w/circles
+    push();
+    fill(hue5);
+    translate(width/2, height/2);
+    rotate(radians(i * step) + wave);
+    ellipse(0, 500, random(200),random(amount)) ;
+    pop();
+    
+    //largest ellipse w/circles
+    push();
+    fill(hue7);
+    translate(width/2, height/2);
+    rotate(radians(i * step) + wave);
+    ellipse(0, 700, random(200),random(amount)) ;
+    pop();
+    
+    //largest ellipse w/circles
+    push();
+    fill(hue9);
+    translate(width/2, height/2);
+    rotate(radians(i * step) + wave);
+    ellipse(0, 900, random(200),random(amount)) ;
+    pop();
+    
+  } 
+ 
+  //RECT SHAPES
+  for (int i = 0; i < amount; i++) {
+    //small ellipse w/squares
+    push();
+    fill(hue2);
+    translate(width/2, height/2);
+    rotate(radians(i * step) - wave);
+    rect(0, 200, random(50), random(amount));
+    pop();
+    
+    //middle ellipse w/squares
+    push();
+    fill(hue4);
+    translate(width/2, height/2);
+    rotate(radians(i * step) - wave);
+    rect(0, 400, random(50), random(amount));
+    pop();
+    
+    //large ellipse w/squares
+    push();
+    fill(hue6);
+    translate(width/2, height/2);
+    rotate(radians(i * step) - wave);
+    rect(0, 600, random(50), random(amount));
+    pop();
+    
+    //largest ellipse w/squares
+    push();
+    fill(hue8);
+    translate(width/2, height/2);
+    rotate(radians(i * step) - wave);
+    rect(0, 800, random(50), random(amount));
+    pop();
+    
+    //largest ellipse w/squares
+    push();
+    fill(hue10);
+    translate(width/2, height/2);
+    rotate(radians(i * step) - wave);
+    rect(0, 1000, random(50), random(amount));
+    pop();
+ 
+  }
+  
+    //STARS
+    push();
+    noStroke();
+    fill(#f1f1f1);
+    for (int x = 0; x < 500; x++) {
+    rect(random(width), random(height), x/400, x/400);
+    ellipse(random(width), random(height), x/200, x/200);
+    }
+    pop();
+    
+    //CENTER EYE
+    push();
+    fill(#FFE299);
+    ellipse(width/2, height/2, random(30), random(30));
+    rectMode(CENTER);
+    rect(width/2, height/2, random(30), random(30));
+    pop();
+    
+  //saveFrame("rendu01/distrib_circular_####.png");
+}
